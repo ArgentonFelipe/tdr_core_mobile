@@ -14,12 +14,7 @@ class ConnectivityService implements IConnectivityService {
   @override
   Future<Result<Unit, ICoreFailure>> checkConnectivity() async {
     final connectivityResults = await _connectivity.checkConnectivity();
-
-    final isOnline = connectivityResults.any((result) {
-      return result == ConnectivityResult.wifi;
-    });
-
-    if (isOnline) {
+    if (connectivityResults.isNotEmpty) {
       return const Success(unit);
     }
 
