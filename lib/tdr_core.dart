@@ -1,0 +1,20 @@
+library tdr_core;
+
+export 'core_module.dart';
+export 'domain/entities/app_info/app_info.dart';
+export 'domain/entities/device_info/device_info.dart';
+export 'domain/services/connectivity_service/connectivity_service_interface.dart';
+export 'domain/usecases/get_app_info/get_app_info.dart';
+export 'domain/usecases/get_app_info/get_app_info_interface.dart';
+export 'domain/usecases/get_device_info/get_device_info.dart';
+export 'domain/usecases/get_device_info/get_device_info_interface.dart';
+export 'external/services/connectivity_service/connectivity_service.dart';
+export 'presenter/stores/app_info_store/app_info_store.dart';
+export 'presenter/stores/device_info_store/device_info_store.dart';
+export 'utils/default_failure_messages/default_failure_messages.dart';
+export 'utils/loader/loader.dart';
+export 'utils/messages/messages.dart';
+export 'utils/random_generators/string_random_generator.dart';
+export 'utils/styles/colors_app/colors_app.dart';
+export 'utils/styles/text_styles/text_styles.dart';
+export 'utils/theme/theme_app.dart';

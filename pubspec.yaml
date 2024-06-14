@@ -1,0 +1,31 @@
+name: tdr_core
+description: "A new Flutter package project."
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  connectivity_plus: ^6.0.3
+  device_info_plus: ^10.1.0
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_modular: ^6.3.4
+  loading_animation_widget: ^1.2.1
+  package_info_plus: ^8.0.0
+  result_dart: ^1.1.1
+  signals_flutter: ^5.2.2
+  top_snackbar_flutter: ^3.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+
+ 
