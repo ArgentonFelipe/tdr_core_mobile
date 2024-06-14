@@ -8,4 +8,6 @@ class AppInfoStore {
   String get buildNumber => _appInfo.buildNumber;
   String get packageName => _appInfo.packageName;
   String get version => _appInfo.version;
+
+  String get versionNumber => _appInfo.versionNumber;
 }

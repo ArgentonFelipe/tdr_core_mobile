@@ -19,6 +19,8 @@ class AppInfo extends Equatable {
     );
   }
 
+  String get versionNumber => '$version+$buildNumber';
+
   @override
   List<Object> get props => [buildNumber, version, packageName];
 }

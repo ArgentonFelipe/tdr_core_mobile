@@ -11,6 +11,8 @@ export 'domain/usecases/get_device_info/get_device_info_interface.dart';
 export 'external/services/connectivity_service/connectivity_service.dart';
 export 'presenter/stores/app_info_store/app_info_store.dart';
 export 'presenter/stores/device_info_store/device_info_store.dart';
+export 'utils/barcode_validate_ean13/barcode_validate_ean13.dart';
+export 'utils/barcode_validate_ean13/barcode_validate_ean13_interface.dart';
 export 'utils/default_failure_messages/default_failure_messages.dart';
 export 'utils/loader/loader.dart';
 export 'utils/messages/messages.dart';
