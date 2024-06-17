@@ -1,0 +1,48 @@
+import 'dart:async';
+import 'dart:developer';
+
+import 'package:result_dart/result_dart.dart';
+import 'package:tdr_core/tdr_core.dart';
+
+import '../../../domain/entities/position/position.dart';
+import '../../../domain/failures/core_failures.dart';
+import '../../../domain/repositories/geolocator_rest_repository/geolocator_rest_repository_interface.dart';
+import '../../helpers/rest_client/exceptions/rest_client_exception.dart';
+import '../../helpers/rest_client/interfaces/rest_client_interface.dart';
+
+class GeolocatorRestRepository implements IGeolocatorRestRepository {
+  final IRestClient _restClient;
+
+  GeolocatorRestRepository({
+    required IRestClient restClient,
+  }) : _restClient = restClient;
+
+  @override
+  Future<Result<Unit, ICoreFailure>> sendCurrentPossiton({
+    required Position position,
+    required int userId,
+  }) async {
+    try {
+      final data = position.objectToMap();
+      data['CODIGO_USUARIO'] = userId;
+
+      log(data.toString());
+
+      // await _restClient.auth.post(
+      //   RestURLs.sendPosition,
+      //   data: data,
+      // );
+      return const Success(unit);
+    } on TimeoutException {
+      return Failure(
+        GeolocatorRestRepositoryFailure(
+          message: DefaultFailureMessages.timeout,
+        ),
+      );
+    } on RestClientException catch (failure) {
+      return Failure(
+        GeolocatorRestRepositoryFailure(message: failure.message),
+      );
+    }
+  }
+}

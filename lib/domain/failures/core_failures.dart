@@ -48,3 +48,43 @@ class DeviceServiceFailure extends Equatable implements ICoreFailure {
   @override
   List<Object> get props => [id];
 }
+
+class GetCurrentPositionFailure extends Equatable implements ICoreFailure {
+  @override
+  final String id = StringRandomGenerator().getRandomString(10);
+
+  @override
+  final String? message;
+
+  GetCurrentPositionFailure({this.message});
+
+  @override
+  List<Object> get props => [id];
+}
+
+class GeolocatorRestRepositoryFailure extends Equatable
+    implements ICoreFailure {
+  @override
+  final String id = StringRandomGenerator().getRandomString(10);
+
+  @override
+  final String? message;
+
+  GeolocatorRestRepositoryFailure({this.message});
+
+  @override
+  List<Object> get props => [id];
+}
+
+class GeolocatorServiceFailure extends Equatable implements ICoreFailure {
+  @override
+  final String id = StringRandomGenerator().getRandomString(10);
+
+  @override
+  final String? message;
+
+  GeolocatorServiceFailure({this.message});
+
+  @override
+  List<Object> get props => [id];
+}

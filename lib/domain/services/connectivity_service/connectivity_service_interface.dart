@@ -3,4 +3,5 @@ import 'package:tdr_core/domain/failures/core_failures.dart';
 
 abstract interface class IConnectivityService {
   Future<Result<Unit, ICoreFailure>> checkConnectivity();
+  Future<Result<Unit, ICoreFailure>> isOnlyWifi();
 }

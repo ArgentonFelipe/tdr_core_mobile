@@ -20,4 +20,18 @@ class ConnectivityService implements IConnectivityService {
 
     return Failure(OfflineDeviceFailure());
   }
+
+  @override
+  Future<Result<Unit, ICoreFailure>> isOnlyWifi() async {
+    final connectivityResults = await _connectivity.checkConnectivity();
+    final isWifi = connectivityResults.any(
+      (result) => result == ConnectivityResult.wifi,
+    );
+
+    if (isWifi) {
+      return const Success(unit);
+    }
+
+    return Failure(OfflineDeviceFailure());
+  }
 }
