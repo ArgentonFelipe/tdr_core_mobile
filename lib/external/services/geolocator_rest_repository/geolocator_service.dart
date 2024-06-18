@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:geolocator/geolocator.dart';
 import 'package:result_dart/result_dart.dart';
-import 'package:tdr_core/domain/failures/core_failures.dart';
-import 'package:tdr_core/tdr_core.dart';
 
 import '../../../domain/entities/position/position.dart' as entity;
+import '../../../domain/failures/core_failures.dart';
 import '../../../domain/services/geolocator_service_interface.dart';
+import '../../../tdr_core.dart';
 
 class GeolocatorService implements IGeolocatorService {
   @override

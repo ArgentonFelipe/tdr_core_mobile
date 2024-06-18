@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
+import '../../../tdr_core.dart';
+
 final class TextStyleApp {
   static const appFont = 'Montserrat';
 
   static const title = TextStyle(
     fontFamily: appFont,
     fontWeight: FontWeight.bold,
-    fontSize: 16,
+    fontSize: 14,
     color: Colors.black,
   );
   static const subtitle = TextStyle(
     fontFamily: appFont,
     fontWeight: FontWeight.bold,
-    fontSize: 14,
+    fontSize: 12,
     color: Colors.black,
   );
 
@@ -20,7 +22,7 @@ final class TextStyleApp {
     fontFamily: appFont,
     fontWeight: FontWeight.bold,
     fontSize: 14,
-    color: Colors.white,
+    color: ColorsApp.red,
   );
 
   static const body = TextStyle(

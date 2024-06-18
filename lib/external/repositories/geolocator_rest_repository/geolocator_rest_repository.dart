@@ -2,13 +2,10 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:result_dart/result_dart.dart';
-import 'package:tdr_core/tdr_core.dart';
 
-import '../../../domain/entities/position/position.dart';
 import '../../../domain/failures/core_failures.dart';
 import '../../../domain/repositories/geolocator_rest_repository/geolocator_rest_repository_interface.dart';
-import '../../helpers/rest_client/exceptions/rest_client_exception.dart';
-import '../../helpers/rest_client/interfaces/rest_client_interface.dart';
+import '../../../tdr_core.dart';
 
 class GeolocatorRestRepository implements IGeolocatorRestRepository {
   final IRestClient _restClient;

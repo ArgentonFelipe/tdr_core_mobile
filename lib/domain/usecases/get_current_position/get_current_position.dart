@@ -1,10 +1,9 @@
 import 'package:result_dart/result_dart.dart';
-import 'package:tdr_core/tdr_core.dart';
 
+import '../../../tdr_core.dart';
 import '../../failures/core_failures.dart';
 import '../../repositories/geolocator_rest_repository/geolocator_rest_repository_interface.dart';
 import '../../services/geolocator_service_interface.dart';
-import 'get_current_position_interface.dart';
 
 class GetCurrentPosition implements IGetCurrentPosition {
   final IGeolocatorService _geolocatorService;

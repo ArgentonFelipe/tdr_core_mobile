@@ -20,4 +20,8 @@ abstract interface class IRestClient {
   IRestClient get auth;
   IRestClient get unauth;
   void setBaseUrl(String url);
+  Future<RestClientResponse> download({
+    required String path,
+    required String savePath,
+  });
 }

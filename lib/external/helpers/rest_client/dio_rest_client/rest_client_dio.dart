@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:tdr_core/external/helpers/rest_client/interceptors/unauthentication_interceptor.dart';
 
 import '../exceptions/rest_client_exception.dart';
 import '../interceptors/auth_interceptor.dart';
+import '../interceptors/unauthentication_interceptor.dart';
 import '../interfaces/rest_client_interface.dart';
 import '../response/rest_client_response.dart';
 
@@ -15,10 +15,12 @@ class RestClientDio implements IRestClient {
     _dio.options.receiveTimeout = const Duration(seconds: 60);
     _dio.interceptors.add(AuthInterceptor());
     _dio.interceptors.add(UnauthenticationInterceptor());
-    _dio.interceptors.add(LogInterceptor(
-      requestBody: true,
-      responseBody: true,
-    ));
+    _dio.interceptors.add(
+      LogInterceptor(
+        requestBody: true,
+        responseBody: true,
+      ),
+    );
   }
 
   static RestClientDio get instance => _instance ??= RestClientDio._();
@@ -154,5 +156,36 @@ class RestClientDio implements IRestClient {
   @override
   void setBaseUrl(String url) {
     _dio.options.baseUrl = url;
+  }
+
+  @override
+  Future<RestClientResponse> download({
+    required String path,
+    required String savePath,
+  }) async {
+    try {
+      final response = await _dio.download(path, savePath);
+
+      return RestClientResponse(
+        data: response.data,
+        statusCode: response.statusCode,
+        statusMessage: response.statusMessage,
+      );
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionError) {
+        throw RestClientException(
+          error: e.error,
+          message:
+              'Não conseguimos comunicar com nossa base de dados. Confira o seu HOST configurado no aplicativo ou contate o suporte',
+          statusCode: 0,
+        );
+      } else {
+        throw RestClientException(
+          error: e.error,
+          message: e.message,
+          statusCode: e.response?.statusCode,
+        );
+      }
+    }
   }
 }

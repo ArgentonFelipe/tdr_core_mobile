@@ -1,8 +1,8 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:result_dart/result_dart.dart';
-import 'package:tdr_core/domain/failures/core_failures.dart';
 
 import '../../../domain/entities/device_info/device_info.dart';
+import '../../../domain/failures/core_failures.dart';
 import '../../../domain/services/device_service/device_service_interface.dart';
 import '../../helpers/platform_wrapper/platform_wrapper_interface.dart';
 

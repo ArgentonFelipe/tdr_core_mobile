@@ -1,7 +1,7 @@
 import 'package:result_dart/result_dart.dart';
-import 'package:tdr_core/domain/entities/app_info/app_info.dart';
-import 'package:tdr_core/domain/failures/core_failures.dart';
 
+import '../../../domain/entities/app_info/app_info.dart';
+import '../../../domain/failures/core_failures.dart';
 import '../../../domain/services/app_service/app_service_interface.dart';
 import '../../helpers/package_info_wrapper/package_info_wrapper_interface.dart';
 
