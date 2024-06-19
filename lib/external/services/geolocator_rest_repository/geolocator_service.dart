@@ -56,6 +56,7 @@ class GeolocatorService implements IGeolocatorService {
     try {
       final position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high,
+        
       );
 
       return Success(

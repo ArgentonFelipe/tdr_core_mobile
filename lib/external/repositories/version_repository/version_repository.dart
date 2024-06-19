@@ -42,14 +42,13 @@ class VersionRepository implements IVersionRepository {
               .collection('versions')
               .get();
 
-      final version = docs.isNotEmpty
-          ? Version.fromMap(docs.first.data())
-          : Version.empty();
+      final version =
+          docs.isNotEmpty ? Version.fromMap(docs.last.data()) : Version.empty();
 
       return Success(
         project.copyWith(
           id: snapshot.id,
-          version: version.copyWith(id: docs.first.id),
+          version: version.copyWith(id: docs.last.id),
         ),
       );
     } on FirebaseException catch (failure) {
