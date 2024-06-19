@@ -18,17 +18,18 @@ class GeolocatorRestRepository implements IGeolocatorRestRepository {
   Future<Result<Unit, ICoreFailure>> sendCurrentPossiton({
     required Position position,
     required int userId,
+    required String url,
   }) async {
     try {
       final data = position.objectToMap();
-      data['CODIGO_USUARIO'] = userId;
+      data['AUDITOR_CODIGO'] = userId;
 
       log(data.toString());
 
-      // await _restClient.auth.post(
-      //   RestURLs.sendPosition,
-      //   data: data,
-      // );
+      await _restClient.auth.post(
+        url,
+        data: data,
+      );
       return const Success(unit);
     } on TimeoutException {
       return Failure(

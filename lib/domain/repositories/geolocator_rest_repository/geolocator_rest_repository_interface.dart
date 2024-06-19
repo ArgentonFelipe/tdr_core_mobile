@@ -7,5 +7,6 @@ abstract interface class IGeolocatorRestRepository {
   Future<Result<Unit, ICoreFailure>> sendCurrentPossiton({
     required Position position,
     required int userId,
+    required String url,
   });
 }

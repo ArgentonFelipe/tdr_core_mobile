@@ -51,11 +51,6 @@ class Position extends Equatable {
       PositionFieldsName.latitude: latitude,
       PositionFieldsName.longitude: longitude,
       PositionFieldsName.altitude: altitude,
-      PositionFieldsName.altitudeAccuracy: altitudeAccuracy,
-      PositionFieldsName.accuracy: accuracy,
-      PositionFieldsName.speed: speed,
-      PositionFieldsName.speedAccuracy: speedAccuracy,
-      PositionFieldsName.createdAt: createdAt,
     };
   }
 

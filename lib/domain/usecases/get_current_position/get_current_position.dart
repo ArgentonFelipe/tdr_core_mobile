@@ -19,7 +19,10 @@ class GetCurrentPosition implements IGetCurrentPosition {
         _geolocatorRestRepository = geolocatorRestRepository;
 
   @override
-  Future<Result<Unit, ICoreFailure>> call({required int userId}) async {
+  Future<Result<Unit, ICoreFailure>> call({
+    required int userId,
+    required String url,
+  }) async {
     if (userId == 0) {
       return Failure(
         GetCurrentPositionFailure(message: 'Código do Usuário é inválido'),
@@ -33,6 +36,7 @@ class GetCurrentPosition implements IGetCurrentPosition {
         final sendResult = await _geolocatorRestRepository.sendCurrentPossiton(
           position: position,
           userId: userId,
+          url: url,
         );
         return sendResult.fold(
           (_) => const Success(unit),
