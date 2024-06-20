@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:tdr_core/tdr_core.dart';
+
+import '../../../utils/styles/colors_app/colors_app.dart';
+import '../../../utils/styles/text_styles/text_styles.dart';
 
 class HeaderPageCard extends Card {
   final String label;
   HeaderPageCard({
     super.key,
     super.color = ColorsApp.red,
+    super.surfaceTintColor = ColorsApp.red,
     required this.label,
   }) : super(
           child: Padding(

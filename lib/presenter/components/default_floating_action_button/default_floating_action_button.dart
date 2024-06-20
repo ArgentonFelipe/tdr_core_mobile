@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../tdr_core.dart';
-
 class DefaultFloatingActionButton extends StatelessWidget {
   final String label;
   final IconData icon;
@@ -23,13 +21,8 @@ class DefaultFloatingActionButton extends StatelessWidget {
     return Visibility(
       visible: this.isVisible,
       child: FloatingActionButton.extended(
-        backgroundColor: Colors.white,
-        label: Text(label, style: TextStyleApp.button),
-        extendedTextStyle: TextStyleApp.title,
-        icon: Icon(
-          icon,
-          color: ColorsApp.red,
-        ),
+        label: Text(label),
+        icon: Icon(icon),
         onPressed: this.isLoading ? null : this.onPressed,
       ),
     );
