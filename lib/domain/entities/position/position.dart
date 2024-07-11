@@ -60,24 +60,32 @@ class Position extends Equatable {
         PositionFieldsName.latitude: final double latitude,
         PositionFieldsName.longitude: final double longitude,
         PositionFieldsName.altitude: final double altitude,
-        PositionFieldsName.altitudeAccuracy: final double altitudeAccuracy,
-        PositionFieldsName.accuracy: final double accuracy,
-        PositionFieldsName.speed: final double speed,
-        PositionFieldsName.speedAccuracy: final double speedAccuracy,
-        PositionFieldsName.createdAt: final DateTime createdAt,
       } =>
         Position(
           latitude: latitude,
           longitude: longitude,
           altitude: altitude,
-          altitudeAccuracy: altitudeAccuracy,
-          accuracy: accuracy,
-          speed: speed,
-          speedAccuracy: speedAccuracy,
-          createdAt: createdAt,
+          altitudeAccuracy: map[PositionFieldsName.altitudeAccuracy] ?? 0.0,
+          accuracy: map[PositionFieldsName.accuracy] ?? 0.0,
+          speed: map[PositionFieldsName.speed] ?? 0.0,
+          speedAccuracy: map[PositionFieldsName.speedAccuracy] ?? 0.0,
+          createdAt: map[PositionFieldsName.createdAt] ?? DateTime(2000),
         ),
       _ => throw ArgumentError('Dados da Posição do Dispositivo são inválidos'),
     };
+  }
+
+  factory Position.empty() {
+    return Position(
+      latitude: 0,
+      longitude: 0,
+      altitude: 0,
+      altitudeAccuracy: 0,
+      accuracy: 0,
+      speed: 0,
+      speedAccuracy: 0,
+      createdAt: DateTime(1900),
+    );
   }
 
   @override
