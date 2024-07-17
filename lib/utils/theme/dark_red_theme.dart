@@ -32,6 +32,7 @@ final class DarkRedTheme {
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: ColorsApp.red,
     ),
+    dividerColor: ColorsApp.red,
     drawerTheme: const DrawerThemeData(),
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyleApp.body.copyWith(color: ColorsApp.red),

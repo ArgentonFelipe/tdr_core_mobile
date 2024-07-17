@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -52,7 +51,6 @@ class CoreModule extends Module {
     i.addLazySingleton<Connectivity>(Connectivity.new);
     i.addLazySingleton<DeviceInfoPlugin>(DeviceInfoPlugin.new);
     i.addLazySingleton<FlutterSecureStorage>(FlutterSecureStorage.new);
-    i.addInstance<FirebaseFirestore>(FirebaseFirestore.instance);
 
     //? HELPERS
     i.addLazySingleton<IPlatformWrapper>(PlatformWrapper.new);

@@ -53,6 +53,7 @@ final class LightRedTheme {
         ColorsApp.red,
       ),
     ),
+    dividerColor: ColorsApp.red,
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: ColorsApp.red,
     ),

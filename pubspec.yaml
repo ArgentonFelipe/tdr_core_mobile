@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   apk_installer: ^0.0.4
-  cloud_firestore: ^5.0.1
+  # cloud_firestore: ^5.0.1
   connectivity_plus: ^6.0.3
   device_info_plus: ^10.1.0
   dio: ^5.4.3+1
