@@ -55,6 +55,13 @@ class RestClientDio implements IRestClient {
               'Não conseguimos comunicar com nossa base de dados. Confira o seu HOST configurado no aplicativo ou contate o suporte',
           statusCode: 0,
         );
+      } else if ((e.response?.statusCode ?? 0) == 404) {
+        throw RestClientException(
+          error: e.error,
+          message:
+              'Não conseguimos encontrar esta rota em nosso sistema. Por favor, contate o suporte',
+          statusCode: 0,
+        );
       } else {
         throw RestClientException(
           error: e.error,

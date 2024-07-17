@@ -71,7 +71,7 @@ mixin MessageStateMixin {
   void clearInfo() => _infoMessage.value = null;
   void clearSuccess() => _successMessage.value = null;
 
-  void clearAlertError() => _errorMessage.value = null;
+  void clearAlertError() => _errorAlertMessage.value = null;
 
   void showError(String message) {
     untracked(() => clearError());
