@@ -6,6 +6,7 @@ class DefaultFloatingActionButton extends StatelessWidget {
   final VoidCallback onPressed;
   final bool isVisible;
   final bool isLoading;
+  final String? hero;
 
   const DefaultFloatingActionButton({
     super.key,
@@ -14,6 +15,7 @@ class DefaultFloatingActionButton extends StatelessWidget {
     this.icon = Icons.add_circle,
     this.isVisible = true,
     this.isLoading = false,
+    this.hero,
   });
 
   @override
@@ -21,6 +23,7 @@ class DefaultFloatingActionButton extends StatelessWidget {
     return Visibility(
       visible: this.isVisible,
       child: FloatingActionButton.extended(
+        heroTag: this.hero,
         label: Text(label),
         icon: Icon(icon),
         onPressed: this.isLoading ? null : this.onPressed,
