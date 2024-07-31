@@ -39,8 +39,8 @@ final class Messages {
   static void showAlertError({
     required String message,
     required BuildContext context,
-  }) {
-    showDialog(
+  }) async {
+    await showDialog(
       barrierDismissible: false,
       context: context,
       builder: (context) {

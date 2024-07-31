@@ -11,7 +11,7 @@ class RestClientDio implements IRestClient {
   static RestClientDio? _instance;
 
   RestClientDio._() {
-    _dio.options.connectTimeout = const Duration(seconds: 20);
+    _dio.options.connectTimeout = const Duration(seconds: 60);
     _dio.options.receiveTimeout = const Duration(seconds: 60);
     _dio.interceptors.add(AuthInterceptor());
     _dio.interceptors.add(UnauthenticationInterceptor());
@@ -60,6 +60,13 @@ class RestClientDio implements IRestClient {
           error: e.error,
           message:
               'Não conseguimos encontrar esta rota em nosso sistema. Por favor, contate o suporte',
+          statusCode: 0,
+        );
+      } else if (e.type == DioExceptionType.connectionTimeout) {
+        throw RestClientException(
+          error: e.error,
+          message:
+              'Não conseguimos comunicar com nossa base de dados. Confira o seu HOST configurado no aplicativo ou contate o suporte',
           statusCode: 0,
         );
       } else {
