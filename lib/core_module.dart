@@ -20,6 +20,8 @@ import 'domain/usecases/get_current_position/get_current_position.dart';
 import 'domain/usecases/get_current_position/get_current_position_interface.dart';
 import 'domain/usecases/get_device_info/get_device_info.dart';
 import 'domain/usecases/get_device_info/get_device_info_interface.dart';
+import 'domain/usecases/get_listen_position/get_listen_position.dart';
+import 'domain/usecases/get_listen_position/get_listen_position_interfafce.dart';
 import 'domain/usecases/initialize_geolocator/initialize_geolocator.dart';
 import 'domain/usecases/initialize_geolocator/initialize_geolocator_interface.dart';
 import 'domain/usecases/set_base_url/set_base_url.dart';
@@ -40,7 +42,7 @@ import 'external/services/app_service/app_service.dart';
 import 'external/services/connectivity_service/connectivity_service.dart';
 import 'external/services/device_service/device_service.dart';
 import 'external/services/file_service/file_service.dart';
-import 'external/services/geolocator_rest_repository/geolocator_service.dart';
+import 'external/services/geolocator_service/geolocator_service.dart';
 import 'presenter/stores/app_info_store/app_info_store.dart';
 import 'presenter/stores/device_info_store/device_info_store.dart';
 
@@ -82,6 +84,7 @@ class CoreModule extends Module {
       CheckProjectLatestVersion.new,
     );
     i.addLazySingleton<IUpdateApp>(UpdateApp.new);
+    i.addLazySingleton<IGetListenPosition>(GetListenPosition.new);
 
     //? STORES
     i.addLazySingleton<AppInfoStore>(AppInfoStore.new);

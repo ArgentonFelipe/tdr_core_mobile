@@ -10,6 +10,7 @@ export 'domain/usecases/check_project_latest_version/check_project_latest_versio
 export 'domain/usecases/get_app_info/get_app_info_interface.dart';
 export 'domain/usecases/get_current_position/get_current_position_interface.dart';
 export 'domain/usecases/get_device_info/get_device_info_interface.dart';
+export 'domain/usecases/get_listen_position/get_listen_position_interfafce.dart';
 export 'domain/usecases/get_position/get_position_interface.dart';
 export 'domain/usecases/initialize_geolocator/initialize_geolocator_interface.dart';
 export 'domain/usecases/set_base_url/set_base_url_interface.dart';
