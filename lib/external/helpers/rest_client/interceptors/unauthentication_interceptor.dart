@@ -20,12 +20,6 @@ class UnauthenticationInterceptor extends Interceptor {
     debugPrint('Error: ${err.error}');
     debugPrint('Error RuntimeType: ${err.error.runtimeType}');
     debugPrint('Error Type: ${err.type}');
-    if (err.response?.statusCode == 403) {
-      final exception = err.copyWith(
-        message: 'Este usuário não tem permissões para acessar o sistema',
-      );
-      handler.reject(exception);
-    }
     handler.next(err);
   }
 
