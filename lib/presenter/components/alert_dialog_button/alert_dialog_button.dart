@@ -4,7 +4,7 @@ import '../../../tdr_core.dart';
 
 class AlertDialogButton extends StatelessWidget {
   final String label;
-  final Function() onPressed;
+  final VoidCallback? onPressed;
   const AlertDialogButton({
     super.key,
     required this.label,
