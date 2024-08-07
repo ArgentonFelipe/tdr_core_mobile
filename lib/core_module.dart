@@ -12,6 +12,7 @@ import 'domain/services/connectivity_service/connectivity_service_interface.dart
 import 'domain/services/device_service/device_service_interface.dart';
 import 'domain/services/file_service/file_service_interface.dart';
 import 'domain/services/geolocator_service_interface.dart';
+import 'domain/services/vibration_service/vibration_service_interface.dart';
 import 'domain/usecases/check_project_latest_version/check_project_latest_version.dart';
 import 'domain/usecases/check_project_latest_version/check_project_latest_version_interface.dart';
 import 'domain/usecases/get_app_info/get_app_info.dart';
@@ -28,6 +29,8 @@ import 'domain/usecases/set_base_url/set_base_url.dart';
 import 'domain/usecases/set_base_url/set_base_url_interface.dart';
 import 'domain/usecases/update_app/update_app.dart';
 import 'domain/usecases/update_app/update_app_interface.dart';
+import 'domain/usecases/vibrate_phone/vibrate_phone.dart';
+import 'domain/usecases/vibrate_phone/vibrate_phone_interface.dart';
 import 'external/helpers/package_info_wrapper/package_info_wrapper.dart';
 import 'external/helpers/package_info_wrapper/package_info_wrapper_interface.dart';
 import 'external/helpers/platform_wrapper/platform_wrapper.dart';
@@ -43,6 +46,7 @@ import 'external/services/connectivity_service/connectivity_service.dart';
 import 'external/services/device_service/device_service.dart';
 import 'external/services/file_service/file_service.dart';
 import 'external/services/geolocator_service/geolocator_service.dart';
+import 'external/services/vibration_service/vibration_service.dart';
 import 'presenter/stores/app_info_store/app_info_store.dart';
 import 'presenter/stores/device_info_store/device_info_store.dart';
 
@@ -65,6 +69,7 @@ class CoreModule extends Module {
     i.addSingleton<IAppService>(AppService.new);
     i.addLazySingleton<IGeolocatorService>(GeolocatorService.new);
     i.addLazySingleton<IFileService>(FileService.new);
+    i.addLazySingleton<IVibrationService>(VibrationService.new);
 
     //? REPOSITORIES
     i.addLazySingleton<IGeolocatorRestRepository>(GeolocatorRestRepository.new);
@@ -85,6 +90,7 @@ class CoreModule extends Module {
     );
     i.addLazySingleton<IUpdateApp>(UpdateApp.new);
     i.addLazySingleton<IGetListenPosition>(GetListenPosition.new);
+    i.addLazySingleton<IVibratePhone>(VibratePhone.new);
 
     //? STORES
     i.addLazySingleton<AppInfoStore>(AppInfoStore.new);

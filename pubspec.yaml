@@ -26,6 +26,7 @@ dependencies:
   result_dart: ^1.1.1
   signals_flutter: ^5.2.2
   top_snackbar_flutter: ^3.1.0
+  vibration: ^1.9.0
 
 dev_dependencies:
   flutter_test:
