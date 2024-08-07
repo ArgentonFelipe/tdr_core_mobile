@@ -4,6 +4,7 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../presenter/components/alert_dialog_info/alert_dialog_info.dart';
+import '../styles/colors_app/colors_app.dart';
 
 final class Messages {
   static void showError({
@@ -12,7 +13,10 @@ final class Messages {
   }) {
     showTopSnackBar(
       Overlay.of(context),
-      CustomSnackBar.error(message: message),
+      CustomSnackBar.error(
+        message: message,
+        backgroundColor: ColorsApp.red,
+      ),
     );
   }
 
@@ -22,7 +26,10 @@ final class Messages {
   }) {
     showTopSnackBar(
       Overlay.of(context),
-      CustomSnackBar.info(message: message),
+      CustomSnackBar.info(
+        message: message,
+        backgroundColor: Colors.yellow[700] ?? Colors.yellow,
+      ),
     );
   }
 
@@ -32,7 +39,10 @@ final class Messages {
   }) {
     showTopSnackBar(
       Overlay.of(context),
-      CustomSnackBar.success(message: message),
+      CustomSnackBar.success(
+        message: message,
+        backgroundColor: Colors.green[700] ?? Colors.green,
+      ),
     );
   }
 
