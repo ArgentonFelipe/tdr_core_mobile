@@ -15,6 +15,7 @@ export 'domain/usecases/get_position/get_position_interface.dart';
 export 'domain/usecases/initialize_geolocator/initialize_geolocator_interface.dart';
 export 'domain/usecases/set_base_url/set_base_url_interface.dart';
 export 'domain/usecases/update_app/update_app_interface.dart';
+export 'domain/usecases/vibrate_phone/vibrate_phone_interface.dart';
 export 'external/helpers/rest_client/dio_rest_client/rest_client_dio.dart';
 export 'external/helpers/rest_client/exceptions/rest_client_exception.dart';
 export 'external/helpers/rest_client/interfaces/rest_client_interface.dart';
