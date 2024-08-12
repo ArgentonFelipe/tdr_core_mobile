@@ -53,7 +53,7 @@ class _AlertDialogInfoState extends State<AlertDialogInfo> {
       actions: [
         TextButton(
           onPressed: this.widget.onPressed ?? () => Navigator.of(context).pop(),
-          child: Text(
+          child: const Text(
             'Continuar',
             style: TextStyleApp.button,
           ),

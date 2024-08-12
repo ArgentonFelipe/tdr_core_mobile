@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tdr_core/tdr_core.dart';
+
+import '../../../tdr_core.dart';
 
 class DefaultEmptyCard extends StatelessWidget {
   final String label;

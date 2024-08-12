@@ -60,9 +60,7 @@ class GeolocatorService implements IGeolocatorService {
   @override
   Future<Result<entity.Position, ICoreFailure>> getCurrentPosition() async {
     try {
-      final position = await geolocator.Geolocator.getCurrentPosition(
-        desiredAccuracy: geolocator.LocationAccuracy.high,
-      );
+      final position = await geolocator.Geolocator.getCurrentPosition();
 
       return Success(
         entity.Position(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tdr_core/tdr_core.dart';
 
-import '../default_loading/default_loading.dart';
+import '../../../tdr_core.dart';
 
 class DefaultLoadingCard extends StatelessWidget {
   final String label;
