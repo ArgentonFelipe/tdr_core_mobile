@@ -1,7 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import 'domain/repositories/apk_repository/apk_repository_interface.dart';
 import 'domain/repositories/configuration_rest_repository/configuration_rest_repository_interface.dart';
@@ -56,7 +55,6 @@ class CoreModule extends Module {
     //? PLUGINS
     i.addLazySingleton<Connectivity>(Connectivity.new);
     i.addLazySingleton<DeviceInfoPlugin>(DeviceInfoPlugin.new);
-    i.addLazySingleton<FlutterSecureStorage>(FlutterSecureStorage.new);
 
     //? HELPERS
     i.addLazySingleton<IPlatformWrapper>(PlatformWrapper.new);

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final class AuthInterceptor extends Interceptor {
   @override
@@ -12,8 +12,8 @@ final class AuthInterceptor extends Interceptor {
     headers.remove(authHeaderKey);
 
     if (extra case {'DIO_AUTH_KEY': true}) {
-      const storage = FlutterSecureStorage();
-      final accessToken = await storage.read(key: 'ACCESS_TOKEN');
+      final storage = SharedPreferencesAsync();
+      final accessToken = await storage.getString('ACCESS_TOKEN');
 
       headers.addAll(
         {authHeaderKey: 'Bearer $accessToken'},
