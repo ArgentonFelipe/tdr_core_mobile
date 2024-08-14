@@ -12,6 +12,7 @@ class DefaultElevatedButton extends StatelessWidget {
   final IconData? icon;
   final double? height;
   final double? elevation;
+  final double? width;
 
   const DefaultElevatedButton({
     super.key,
@@ -23,13 +24,14 @@ class DefaultElevatedButton extends StatelessWidget {
     this.icon,
     this.height,
     this.elevation,
+    this.width,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: this.height,
-      width: MediaQuery.sizeOf(context).width,
+      width: this.width,
       child: Visibility(
         visible: this.icon == null,
         replacement: SizedBox(
