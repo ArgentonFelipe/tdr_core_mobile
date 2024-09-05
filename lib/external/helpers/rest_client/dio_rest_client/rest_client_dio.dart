@@ -67,13 +67,13 @@ class RestClientDio implements IRestClient {
           error: e.error,
           message:
               'Este usuário não tem permissões para acessar o sistema. Por favor, contate o suporte',
-          statusCode: 403,
+          statusCode: 431,
         );
       } else if ((e.response?.statusCode ?? 0) == 401) {
         throw RestClientException(
           error: e.error,
           message:
-              'Tempo da sessão do usuário encerrado. Por favor, faça login novamente',
+              'Este usuário não tem permissões para acessar o sistema. Por favor, contate o suporte',
           statusCode: 401,
         );
       } else if (e.type == DioExceptionType.connectionTimeout) {
@@ -126,14 +126,21 @@ class RestClientDio implements IRestClient {
           error: e.error,
           message:
               'Não conseguimos encontrar esta rota em nosso sistema. Por favor, contate o suporte',
-          statusCode: 0,
+          statusCode: 404,
         );
       } else if ((e.response?.statusCode ?? 0) == 403) {
         throw RestClientException(
           error: e.error,
           message:
               'Este usuário não tem permissões para acessar o sistema. Por favor, contate o suporte',
-          statusCode: 0,
+          statusCode: 431,
+        );
+      } else if ((e.response?.statusCode ?? 0) == 401) {
+        throw RestClientException(
+          error: e.error,
+          message:
+              'Este usuário não tem permissões para acessar o sistema. Por favor, contate o suporte',
+          statusCode: 401,
         );
       } else if (e.type == DioExceptionType.connectionTimeout) {
         throw RestClientException(

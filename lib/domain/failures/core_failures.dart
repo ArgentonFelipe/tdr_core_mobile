@@ -162,3 +162,16 @@ class OutdatedProjectVersionFailure extends Equatable implements ICoreFailure {
   @override
   List<Object> get props => [id];
 }
+
+class ForbiddenFailure extends Equatable implements ICoreFailure {
+  @override
+  final String id = StringRandomGenerator().getRandomString(10);
+
+  @override
+  final String? message;
+
+  ForbiddenFailure({this.message});
+
+  @override
+  List<Object> get props => [id];
+}
