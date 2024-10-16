@@ -67,7 +67,7 @@ class RestClientDio implements IRestClient {
           error: e.error,
           message:
               'Este usuário não tem permissões para acessar o sistema. Por favor, contate o suporte',
-          statusCode: 431,
+          statusCode: 403,
         );
       } else if ((e.response?.statusCode ?? 0) == 401) {
         throw RestClientException(
@@ -152,7 +152,8 @@ class RestClientDio implements IRestClient {
       } else {
         throw RestClientException(
           error: e.error,
-          message: e.message,
+          message:
+              'Um comportamento inesperado aconteceu. Por favor, contate o suporte. ERRO: ${e.response?.statusCode ?? 0}',
           statusCode: e.response?.statusCode,
         );
       }

@@ -98,14 +98,14 @@ class GeolocatorRestRepositoryFailure extends Equatable
   List<Object> get props => [id];
 }
 
-class GeolocatorServiceFailure extends Equatable implements ICoreFailure {
+class LocationServiceFailure extends Equatable implements ICoreFailure {
   @override
   final String id = StringRandomGenerator().getRandomString(10);
 
   @override
   final String? message;
 
-  GeolocatorServiceFailure({this.message});
+  LocationServiceFailure({this.message});
 
   @override
   List<Object> get props => [id];
