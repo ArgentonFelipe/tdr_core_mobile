@@ -76,13 +76,6 @@ class RestClientDio implements IRestClient {
               'Este usuário não tem permissões para acessar o sistema. Por favor, contate o suporte',
           statusCode: 401,
         );
-      } else if (e.type == DioExceptionType.connectionTimeout) {
-        throw RestClientException(
-          error: e.error,
-          message:
-              'Não conseguimos comunicar com nossa base de dados. Confira o seu HOST configurado no aplicativo ou contate o suporte',
-          statusCode: 0,
-        );
       } else {
         throw RestClientException(
           error: e.error,
@@ -141,13 +134,6 @@ class RestClientDio implements IRestClient {
           message:
               'Este usuário não tem permissões para acessar o sistema. Por favor, contate o suporte',
           statusCode: 401,
-        );
-      } else if (e.type == DioExceptionType.connectionTimeout) {
-        throw RestClientException(
-          error: e.error,
-          message:
-              'Não conseguimos comunicar com nossa base de dados. Confira o seu HOST configurado no aplicativo ou contate o suporte',
-          statusCode: 0,
         );
       } else {
         throw RestClientException(
