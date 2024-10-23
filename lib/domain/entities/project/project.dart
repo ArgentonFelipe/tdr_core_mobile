@@ -39,7 +39,7 @@ class Project extends Equatable {
   String get versionNumber => '${this.version.number}+${this.version.build}';
 
   Project copyWith({
-    String? id,
+    int? id,
     String? name,
     String? packageName,
     Version? version,
@@ -94,7 +94,7 @@ class Project extends Equatable {
 
   factory Project.empty() {
     return Project(
-      id: '',
+      id: 0,
       name: '',
       packageName: '',
       urlApk: '',
