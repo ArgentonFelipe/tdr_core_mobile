@@ -7,6 +7,7 @@ class Version extends Equatable {
   final String id;
   final String number;
   final String build;
+  final bool isActivated;
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
@@ -14,6 +15,7 @@ class Version extends Equatable {
     required this.id,
     required this.number,
     required this.build,
+    required this.isActivated,
     this.createdAt,
     this.updatedAt,
   });
@@ -22,6 +24,7 @@ class Version extends Equatable {
     String? id,
     String? number,
     String? build,
+    bool? isActivated,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -29,6 +32,7 @@ class Version extends Equatable {
       id: id ?? this.id,
       number: number ?? this.number,
       build: build ?? this.build,
+      isActivated: isActivated ?? this.isActivated,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -41,6 +45,7 @@ class Version extends Equatable {
       VersionFieldsName.build: build,
       VersionFieldsName.createdAt: createdAt,
       VersionFieldsName.updatedAt: updatedAt,
+      VersionFieldsName.isActivated: isActivated,
     };
   }
 
@@ -54,6 +59,7 @@ class Version extends Equatable {
           id: map[VersionFieldsName.id] ?? '',
           number: number,
           build: build,
+          isActivated: map[VersionFieldsName.isActivated],
         ),
       _ => throw ArgumentError('Dados do JSON da versão estão incorretos')
     };
@@ -64,6 +70,7 @@ class Version extends Equatable {
       build: '',
       id: '',
       number: '',
+      isActivated: false,
     );
   }
 
@@ -73,6 +80,7 @@ class Version extends Equatable {
       id,
       number,
       build,
+      isActivated,
       createdAt,
       updatedAt,
     ];
