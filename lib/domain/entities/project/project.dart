@@ -76,13 +76,13 @@ class Project extends Equatable {
       {
         ProjectFieldsName.name: final String name,
         ProjectFieldsName.packageName: final String packageName,
-        ProjectFieldsName.urlApk: final String urlApk,
+        // ProjectFieldsName.urlApk: final String urlApk,
         // ProjectFieldsName.version: final Map<String, dynamic> version,
       } =>
         Project(
           id: map[ProjectFieldsName.id] ?? '',
           name: name,
-          urlApk: urlApk,
+          urlApk: map[ProjectFieldsName.urlApk] ?? '',
           packageName: packageName,
           version: map[ProjectFieldsName.version] != null
               ? Version.fromMap(map[ProjectFieldsName.version])
