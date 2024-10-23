@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 
 import '../version/version.dart';
@@ -8,7 +7,7 @@ class Project extends Equatable {
   final int id;
   final String name;
   final String packageName;
-  final Version version;
+  final List<Version> versions;
   final DateTime? createdAt;
   final DateTime? updatedAt;
   final String urlApk;
@@ -17,11 +16,13 @@ class Project extends Equatable {
     required this.id,
     required this.name,
     required this.packageName,
-    required this.version,
+    required this.versions,
     required this.urlApk,
     this.createdAt,
     this.updatedAt,
   });
+
+  String get versionNumber => versions.first.versionNumber;
 
   @override
   List<Object?> get props {
@@ -29,20 +30,18 @@ class Project extends Equatable {
       id,
       name,
       packageName,
-      version,
+      versions,
       createdAt,
       updatedAt,
       urlApk,
     ];
   }
 
-  String get versionNumber => '${this.version.number}+${this.version.build}';
-
   Project copyWith({
     int? id,
     String? name,
     String? packageName,
-    Version? version,
+    List<Version>? versions,
     DateTime? createdAt,
     DateTime? updatedAt,
     String? urlApk,
@@ -51,7 +50,7 @@ class Project extends Equatable {
       id: id ?? this.id,
       name: name ?? this.name,
       packageName: packageName ?? this.packageName,
-      version: version ?? this.version,
+      versions: versions ?? this.versions,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       urlApk: urlApk ?? this.urlApk,
@@ -63,7 +62,7 @@ class Project extends Equatable {
       ProjectFieldsName.id: id,
       ProjectFieldsName.name: name,
       ProjectFieldsName.packageName: packageName,
-      ProjectFieldsName.version: version.toMap(),
+      // ProjectFieldsName.versions: versions.toMap(),
       ProjectFieldsName.urlApk: urlApk,
 
       // ProjectFieldsName.createdAt: createdAt?.millisecondsSinceEpoch,
@@ -77,15 +76,17 @@ class Project extends Equatable {
         ProjectFieldsName.name: final String name,
         ProjectFieldsName.packageName: final String packageName,
         // ProjectFieldsName.urlApk: final String urlApk,
-        // ProjectFieldsName.version: final Map<String, dynamic> version,
+        // ProjectFieldsName.versions: final Map<String, dynamic> versions,
       } =>
         Project(
           id: map[ProjectFieldsName.id] ?? '',
           name: name,
           urlApk: map[ProjectFieldsName.urlApk] ?? '',
           packageName: packageName,
-          version: map[ProjectFieldsName.version] != null
-              ? Version.fromMap(map[ProjectFieldsName.version])
+          versions: map[ProjectFieldsName.versions] != null
+              ? map[ProjectFieldsName.versions]
+                  .map((version) => Version.fromMap(version))
+                  .toList()
               : Version.empty(),
         ),
       _ => throw ArgumentError('Dados do JSON do Projeto estão incorretos'),
@@ -93,12 +94,12 @@ class Project extends Equatable {
   }
 
   factory Project.empty() {
-    return Project(
+    return const Project(
       id: 0,
       name: '',
       packageName: '',
       urlApk: '',
-      version: Version.empty(),
+      versions: [],
     );
   }
 }

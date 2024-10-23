@@ -20,6 +20,8 @@ class Version extends Equatable {
     this.updatedAt,
   });
 
+  String get versionNumber => '$number+$build';
+
   Version copyWith({
     String? id,
     String? number,
