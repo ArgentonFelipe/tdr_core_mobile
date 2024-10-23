@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'fields_name/version_fields_name.dart';
 
 class Version extends Equatable {
-  final String id;
+  final int id;
   final String number;
   final String build;
   final bool isActivated;
@@ -23,7 +23,7 @@ class Version extends Equatable {
   String get versionNumber => '$number+$build';
 
   Version copyWith({
-    String? id,
+    int? id,
     String? number,
     String? build,
     bool? isActivated,
@@ -70,7 +70,7 @@ class Version extends Equatable {
   factory Version.empty() {
     return const Version(
       build: '',
-      id: '',
+      id: 0,
       number: '',
       isActivated: false,
     );
