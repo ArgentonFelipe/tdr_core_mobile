@@ -5,7 +5,7 @@ import '../version/version.dart';
 import 'fields_name/project_fields_name.dart';
 
 class Project extends Equatable {
-  final String id;
+  final int id;
   final String name;
   final String packageName;
   final Version version;
