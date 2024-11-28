@@ -16,6 +16,7 @@ abstract interface class IRestClient {
     String path, {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
+    dynamic data,
   });
   IRestClient get auth;
   IRestClient get unauth;
