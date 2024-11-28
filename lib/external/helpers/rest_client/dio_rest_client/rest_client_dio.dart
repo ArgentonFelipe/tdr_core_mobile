@@ -150,11 +150,13 @@ class RestClientDio implements IRestClient {
   Future<RestClientResponse<T>> put<T>(
     String path, {
     Map<String, dynamic>? queryParameters,
+    dynamic data,
     Map<String, dynamic>? headers,
   }) async {
     try {
       final response = await _dio.put<T>(
         path,
+        data: data,
         queryParameters: queryParameters,
         options: Options(
           headers: headers,

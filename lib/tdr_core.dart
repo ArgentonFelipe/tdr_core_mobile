@@ -1,4 +1,4 @@
-library tdr_core;
+library;
 
 export 'core_module.dart';
 export 'domain/entities/app_info/app_info.dart';
