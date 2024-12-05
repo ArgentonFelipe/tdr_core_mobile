@@ -1,6 +1,6 @@
 name: tdr_core
-description: "A new Flutter package project."
-version: 1.0.18
+description: "Package para agregar todos os componentes utilizados em comum na empresa SRS"
+version: 1.0.19
 homepage:
 
 environment:
